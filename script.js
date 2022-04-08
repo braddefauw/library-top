@@ -15,8 +15,6 @@ function addBookToLibrary() {
   // content to be added
 }
 
-addBookToLibrary()
-
 function makeCards(){
   for(const obj of myLibrary){
     let cards = document.getElementById("cards");
