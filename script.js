@@ -34,17 +34,16 @@ function makeNewCard(){
     cardPages.innerText = `${obj.pages} pages`;
     card.appendChild(cardPages);
 
-    let cardRead = document.createElement("p");
+    let cardRead = document.createElement("button");
     cardRead.innerText = obj.read;
     card.appendChild(cardRead);
+
+    let cardDelete = document.createElement("button");
+    cardDelete.innerText = "Delete";
+    card.appendChild(cardDelete);
 
     cards.appendChild(card);
   }
 }
 
 makeNewCard();
-
-document.getElementById("title").innerText = `"${myLibrary[0].title}"`;
-document.getElementById("author").innerText = myLibrary[0].author;
-document.getElementById("pages").innerText = `${myLibrary[0].pages} pages`;
-document.getElementById("read").innerText = myLibrary[0].read;
