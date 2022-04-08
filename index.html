@@ -22,14 +22,14 @@
                     <button type="button" id="close" onclick="hide()">X</button>
                     <br>
                     <label for="author">Author:</label><br>
-                    <input type="text" id="author" name="author"><br>
+                    <input type="text" id="author" name="author" required><br>
                     <label for="title">Title:</label><br>
-                    <input type="text" id="title" name="title">
+                    <input type="text" id="title" name="title" required>
                     <label for="pages">Number of Pages:</label><br>
-                    <input type="number" id="pages" name="pages"><br>
+                    <input type="number" id="pages" name="pages" required><br>
                     <label for="read">Read?</label><br>
                     <input type="checkbox" id="read" name="read"><br>
-                    <button type="button" id="submit" onclick="add()">Submit</button>
+                    <input type="submit" id="submit" value="Submit" onclick="add()">
                 </form>
             </div>
         </div>

@@ -31,11 +31,36 @@ function add() {
   let read = document.getElementById("read").value;
   
   if (author== "" || title == "" || pages == "") {
-    alert("Please fill all fields.")
+    console.log("nope");
   } else {
     document.getElementById("popup").style.display = "none";
 
-    //add in 
+    //add fields to library
+    let cards = document.getElementById("cards");
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let cardTitle = document.createElement("p");
+    cardTitle.innerText = title;
+    card.appendChild(cardTitle);
+
+    let cardAuthor = document.createElement("p");
+    cardAuthor.innerText = author;
+    card.appendChild(cardAuthor);
+
+    let cardPages = document.createElement("p");
+    cardPages.innerText = `${pages} pages`;
+    card.appendChild(cardPages);
+
+    let cardRead = document.createElement("button");
+    cardRead.innerText = read;
+    card.appendChild(cardRead);
+
+    let cardDelete = document.createElement("button");
+    cardDelete.innerText = "Delete";
+    card.appendChild(cardDelete);
+
+    cards.appendChild(card);
 
     document.getElementById("author").value = "";
     document.getElementById("title").value = "";
