@@ -21,18 +21,14 @@
                 <form id="form">
                     <button type="button" id="close" onclick="hide()">X</button>
                     <br>
-                    <h1>Name</h1>
-                    <br>
-                    <input type="text" name="name" id="name">
-                    <br>
-                    <h1>Age:</h1>
-                    <br>
-                    <input id="age" name="age" type="text"/>
-                    <br>
-                    <p1>Country:</p1>
-                    <br>
-                    <input id="country" name="country" type="text"/>
-                    <br>
+                    <label for="author">Author:</label><br>
+                    <input type="text" id="author" name="author"><br>
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" name="title">
+                    <label for="pages">Number of Pages:</label><br>
+                    <input type="number" id="pages" name="pages"><br>
+                    <label for="read">Read?</label><br>
+                    <input type="checkbox" id="read" name="read"><br>
                     <button type="button" id="submit" onclick="add()">Submit</button>
                 </form>
             </div>

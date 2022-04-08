@@ -11,36 +11,40 @@ function Book(title, author, pages, read){
     this.read = read;
 }
 
+//popup form start
+
 function show(){
   document.getElementById("popup").style.display = "block";
 }
 function hide() {
   document.getElementById("popup").style.display = "none";
-  
-  document.getElementById("name").value = "";
-  document.getElementById("age").value = "";
-  document.getElementById("country").value = "";
+  document.getElementById("author").value = "";
+  document.getElementById("title").value = "";
+  document.getElementById("pages").value = "";
+  document.getElementById("read").value = "";
 }
 
 function add() {
-  var name = document.getElementById("name").value;
-  var age = document.getElementById("age").value;
-  var country = document.getElementById("country").value;
+  let author = document.getElementById("author").value;
+  let title = document.getElementById("title").value;
+  let pages = document.getElementById("pages").value;
+  let read = document.getElementById("read").value;
   
-  if (name == "" || age == "" || country == "") {
+  if (author== "" || title == "" || pages == "") {
     alert("Please fill all fields.")
   } else {
     document.getElementById("popup").style.display = "none";
-    var newdiv = document.createElement("div");
-    newdiv.className += "cont";
-    newdiv.innerHTML = "Name: "+ name + "<br>Age: " + age + "<br>Country: " + country;
-    document.getElementById("results").appendChild(newdiv);
-    
-    document.getElementById("name").value = "";
-    document.getElementById("age").value = "";
-    document.getElementById("country").value = "";
+
+    //add in 
+
+    document.getElementById("author").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("pages").value = "";
+    document.getElementById("read").value = "";
   }
 }
+
+// popup form end
 
 function addBookToLibrary() {
   // content to be added

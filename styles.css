@@ -49,11 +49,6 @@ input {
     height: 27px;
 }
 
-h1 {
-    float: left;
-    margin-left: 30px;
-}
-
 .card-container {
     background: skyblue;
     display: grid;
