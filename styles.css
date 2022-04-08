@@ -1,3 +1,25 @@
 body {
-    background-color: aqua;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 5fr 0.5fr;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: salmon;
+}
+
+.card-container {
+    background: skyblue;
+}
+
+.card {
+    border: 1px solid black;
+    height: auto;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
