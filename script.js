@@ -1,5 +1,9 @@
 let myLibrary = [];
 
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read');
+const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread');
+myLibrary.push(theHobbit, pachinko);
+
 function Book(title, author, pages, read){
     this.title = title
     this.author = author
@@ -8,15 +12,12 @@ function Book(title, author, pages, read){
 }
 
 function addBookToLibrary() {
-  const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read');
-  const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread');
-  myLibrary.push(theHobbit, pachinko);
-  console.log(myLibrary);
+  // content to be added
 }
 
 addBookToLibrary()
 
-function makeNewCard(){
+function makeCards(){
   for(const obj of myLibrary){
     let cards = document.getElementById("cards");
     let card = document.createElement("div");
@@ -46,4 +47,4 @@ function makeNewCard(){
   }
 }
 
-makeNewCard();
+makeCards();
