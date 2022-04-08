@@ -15,7 +15,10 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary()
-document.getElementById("title").innerText = myLibrary[0].title;
+
+function makeNewCard(){}
+
+document.getElementById("title").innerText = `"${myLibrary[0].title}"`;
 document.getElementById("author").innerText = myLibrary[0].author;
 document.getElementById("pages").innerText = `${myLibrary[0].pages} pages`;
 document.getElementById("read").innerText = myLibrary[0].read;
