@@ -16,7 +16,26 @@
     </header>
     <div class="card-container">
         <div class="card-title">
-            <input type="button" value="Add Book">
+            <button id="add" onclick="show()">Add Book</button>
+            <div id="popup">
+                <form id="form">
+                    <button type="button" id="close" onclick="hide()">X</button>
+                    <br>
+                    <h1>Name</h1>
+                    <br>
+                    <input type="text" name="name" id="name">
+                    <br>
+                    <h1>Age:</h1>
+                    <br>
+                    <input id="age" name="age" type="text"/>
+                    <br>
+                    <p1>Country:</p1>
+                    <br>
+                    <input id="country" name="country" type="text"/>
+                    <br>
+                    <button type="button" id="submit" onclick="add()">Submit</button>
+                </form>
+            </div>
         </div>
         <div id="cards"></div>
     </div>
