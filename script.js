@@ -29,6 +29,12 @@ function add() {
   let title = document.getElementById("title").value;
   let pages = document.getElementById("pages").value;
   let read = document.getElementById("read").value;
+  if(read === "on"){
+    read = "Read"
+  }else{
+    read = "Not Read Yet"
+  }
+  
   
   if (author== "" || title == "" || pages == "") {
     console.log("nope");
