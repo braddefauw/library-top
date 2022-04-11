@@ -1,14 +1,15 @@
 let myLibrary = [];
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read');
-const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread');
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
+const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread', 1);
 myLibrary.push(theHobbit, pachinko);
 
-function Book(title, author, pages, read){
+function Book(title, author, pages, read, index){
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read;
+    this.index = index
 }
 
 //popup form start
@@ -67,12 +68,15 @@ function add() {
     card.appendChild(cardDelete);
 
     cards.appendChild(card);
+    const newBook = new Book(cardTitle.innerText, cardAuthor.innerText, cardPages.innerText, cardRead.innerText, 4);
+    myLibrary.push(newBook)
 
     document.getElementById("author").value = "";
     document.getElementById("title").value = "";
     document.getElementById("pages").value = "";
     document.getElementById("read").value = "";
   }
+  console.log(myLibrary);
 }
 
 // popup form end
