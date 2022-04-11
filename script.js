@@ -34,6 +34,7 @@ function makeCards(){
 
     let cardRead = document.createElement("button");
     cardRead.innerText = obj.read;
+    cardRead.classList.add("readBtn")
     card.appendChild(cardRead);
 
     let cardIndex = obj.index;
@@ -96,6 +97,7 @@ function add() {
 
     let cardRead = document.createElement("button");
     cardRead.innerText = read;
+    cardRead.classList.add("readBtn")
     card.appendChild(cardRead);
 
     let cardDelete = document.createElement("button");
@@ -128,11 +130,29 @@ function add() {
 
 // popup form end
 
+// delete card
+
 let deleteBtns = document.getElementsByClassName("deleteBtn");
 for(let btn of deleteBtns){
   btn.addEventListener('click', (e) => {
     let target = e.target;
     let parent = target.parentElement;
     parent.remove();
+  })
+}
+
+//read/unread
+
+let readBtns = document.getElementsByClassName("readBtn");
+for(let btn of readBtns){
+  btn.addEventListener('click', (e) => {
+    let target = e.target;
+    let parent = target.parentElement;
+    let children = parent.getElementsByClassName("readBtn")[0];
+    if(children.innerHTML === "Read"){
+      children.innerHTML = "Unread";
+    }else{
+      children.innerHTML = "Read";
+    }
   })
 }
