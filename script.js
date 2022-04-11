@@ -9,10 +9,6 @@ const Book = function(title, author, pages, read, index){
   this.index = index
 }
 
-Book.prototype.toggleStatus = function(e){
-  e.target.read;
-}
-
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
 const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread', 1);
 myLibrary.push(theHobbit, pachinko);
@@ -79,7 +75,7 @@ function add() {
   }else{
     read = "Unread"
   }
-  if(author !== "" && title !== "" && pages !== ""){
+  if (author !== "" && title !== "" && pages !== ""){
     document.getElementById("popup").style.display = "none";
 
     //add fields to library

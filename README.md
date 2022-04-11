@@ -1,0 +1,1 @@
+Small library app with create, read, and delete functionality. Focus on Object & Object Constructors JS
