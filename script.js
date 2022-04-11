@@ -4,6 +4,7 @@ let index = 2;
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
 const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread', 1);
 myLibrary.push(theHobbit, pachinko);
+console.log(myLibrary);
 
 function Book(title, author, pages, read, index){
     this.title = title
@@ -30,11 +31,11 @@ function add() {
   let author = document.getElementById("author").value;
   let title = document.getElementById("title").value;
   let pages = document.getElementById("pages").value;
-  let read = document.getElementById("read").value;
-  if(read === "on"){
+  let read = document.getElementById("read");
+  if(read.checked){
     read = "Read"
   }else{
-    read = "Not Read Yet"
+    read = "Unread"
   }
   
   
@@ -77,7 +78,7 @@ function add() {
     document.getElementById("author").value = "";
     document.getElementById("title").value = "";
     document.getElementById("pages").value = "";
-    document.getElementById("read").value = "";
+    document.getElementById("read").checked = false;
   }
   console.log(myLibrary);
 }
