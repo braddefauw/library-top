@@ -1,18 +1,55 @@
 let myLibrary = [];
 let index = 2;
 
+function Book(title, author, pages, read, index){
+  this.title = title
+  this.author = author
+  this.pages = pages
+  this.read = read;
+  this.index = index
+}
+
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
 const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread', 1);
 myLibrary.push(theHobbit, pachinko);
 console.log(myLibrary);
 
-function Book(title, author, pages, read, index){
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read;
-    this.index = index
+function makeCards(){
+  for(const obj of myLibrary){
+    let cards = document.getElementById("cards");
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let cardTitle = document.createElement("p");
+    cardTitle.innerText = obj.title;
+    card.appendChild(cardTitle);
+
+    let cardAuthor = document.createElement("p");
+    cardAuthor.innerText = obj.author;
+    card.appendChild(cardAuthor);
+
+    let cardPages = document.createElement("p");
+    cardPages.innerText = `${obj.pages} pages`;
+    card.appendChild(cardPages);
+
+    let cardRead = document.createElement("button");
+    cardRead.innerText = obj.read;
+    card.appendChild(cardRead);
+
+    let cardIndex = obj.index;
+
+    let cardDelete = document.createElement("button");
+    cardDelete.innerText = "Delete";
+    cardDelete.classList.add("deleteBtn");
+    card.appendChild(cardDelete);
+
+    card.dataset.indexNumber = cardIndex;
+
+    cards.appendChild(card);
+  }
 }
+
+makeCards();
 
 //popup form start
 
@@ -63,9 +100,11 @@ function add() {
 
     let cardDelete = document.createElement("button");
     cardDelete.innerText = "Delete";
+    cardDelete.classList.add("deleteBtn");
     card.appendChild(cardDelete);
 
     let cardIndex = index++;
+    card.dataset.indexNumber = cardIndex;
 
     cards.appendChild(card);
     const newBook = new Book(cardTitle.innerText, cardAuthor.innerText, cardPages.innerText, cardRead.innerText, cardIndex);
@@ -79,40 +118,10 @@ function add() {
   console.log(myLibrary);
 }
 
+let deleteBtn = document.querySelector(".deleteBtn");
+
 // popup form end
 
 function addBookToLibrary() {
   // content to be added
 }
-
-function makeCards(){
-  for(const obj of myLibrary){
-    let cards = document.getElementById("cards");
-    let card = document.createElement("div");
-    card.classList.add("card");
-
-    let cardTitle = document.createElement("p");
-    cardTitle.innerText = obj.title;
-    card.appendChild(cardTitle);
-
-    let cardAuthor = document.createElement("p");
-    cardAuthor.innerText = obj.author;
-    card.appendChild(cardAuthor);
-
-    let cardPages = document.createElement("p");
-    cardPages.innerText = `${obj.pages} pages`;
-    card.appendChild(cardPages);
-
-    let cardRead = document.createElement("button");
-    cardRead.innerText = obj.read;
-    card.appendChild(cardRead);
-
-    let cardDelete = document.createElement("button");
-    cardDelete.innerText = "Delete";
-    card.appendChild(cardDelete);
-
-    cards.appendChild(card);
-  }
-}
-
-makeCards();
