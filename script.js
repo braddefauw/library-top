@@ -1,4 +1,5 @@
 let myLibrary = [];
+let index = 2;
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
 const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Unread', 1);
@@ -67,8 +68,10 @@ function add() {
     cardDelete.innerText = "Delete";
     card.appendChild(cardDelete);
 
+    let cardIndex = index++;
+
     cards.appendChild(card);
-    const newBook = new Book(cardTitle.innerText, cardAuthor.innerText, cardPages.innerText, cardRead.innerText, 4);
+    const newBook = new Book(cardTitle.innerText, cardAuthor.innerText, cardPages.innerText, cardRead.innerText, cardIndex);
     myLibrary.push(newBook)
 
     document.getElementById("author").value = "";
