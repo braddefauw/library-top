@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background: salmon;
+    background: peru;
 }
 
 button {
@@ -52,7 +52,7 @@ input {
 .card-container {
     background: skyblue;
     display: grid;
-    grid-template-rows: 1fr 6fr;
+    grid-template-rows: 50px 4fr;
 }
 
 .card-title {
