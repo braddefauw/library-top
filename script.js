@@ -37,11 +37,7 @@ function add() {
   }else{
     read = "Unread"
   }
-  
-  
-  if (author== "" || title == "" || pages == "") {
-    console.log("nope");
-  } else {
+  if(author !== "" && title !== "" && pages !== ""){
     document.getElementById("popup").style.display = "none";
 
     //add fields to library
