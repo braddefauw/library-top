@@ -1,12 +1,16 @@
 let myLibrary = [];
 let index = 2;
 
-function Book(title, author, pages, read, index){
+const Book = function(title, author, pages, read, index){
   this.title = title
   this.author = author
   this.pages = pages
   this.read = read;
   this.index = index
+}
+
+Book.prototype.toggleStatus = function(e){
+  e.target.read;
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
@@ -141,18 +145,21 @@ for(let btn of deleteBtns){
   })
 }
 
-//read/unread
-
 let readBtns = document.getElementsByClassName("readBtn");
 for(let btn of readBtns){
   btn.addEventListener('click', (e) => {
     let target = e.target;
     let parent = target.parentElement;
+    let elem = myLibrary[parent.dataset.indexNumber];
     let children = parent.getElementsByClassName("readBtn")[0];
     if(children.innerHTML === "Read"){
       children.innerHTML = "Unread";
+      elem.read = "Unread"
+      console.log(myLibrary);
     }else{
       children.innerHTML = "Read";
+      elem.read = "Read";
+      console.log(myLibrary);
     }
   })
 }
