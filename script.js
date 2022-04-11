@@ -115,13 +115,24 @@ function add() {
     document.getElementById("pages").value = "";
     document.getElementById("read").checked = false;
   }
+  let deleteBtns = document.getElementsByClassName("deleteBtn");
+  for(let btn of deleteBtns){
+    btn.addEventListener('click', (e) => {
+      let target = e.target;
+      let parent = target.parentElement;
+      parent.remove();
+    })
+  }
   console.log(myLibrary);
 }
 
-let deleteBtn = document.querySelector(".deleteBtn");
-
 // popup form end
 
-function addBookToLibrary() {
-  // content to be added
+let deleteBtns = document.getElementsByClassName("deleteBtn");
+for(let btn of deleteBtns){
+  btn.addEventListener('click', (e) => {
+    let target = e.target;
+    let parent = target.parentElement;
+    parent.remove();
+  })
 }
