@@ -134,3 +134,20 @@ button {
     -ms-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
+
+footer, footer h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer img {
+    height: 1.5rem;
+    margin-left: 1rem;
+    margin-top: 0.25rem;
+    transition: transform 0.7s ease-in-out;
+}
+
+footer img:hover {
+    transform: rotate(360deg) scale(2);
+}
