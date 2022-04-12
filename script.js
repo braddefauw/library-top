@@ -99,19 +99,15 @@ function add() {
     cardPages.innerText = `${pages} pages`;
     card.appendChild(cardPages);
 
-    let cardP = document.createElement("p");
     let cardRead = document.createElement("button");
-    cardRead.innerText = obj.read;
-    cardRead.classList.add("readBtn");
-    cardP.appendChild(cardRead);
-    card.appendChild(cardP);
+    cardRead.innerText = read;
+    cardRead.classList.add("readBtn")
+    card.appendChild(cardRead);
 
-    let deleteP = document.createElement("p");
     let cardDelete = document.createElement("button");
     cardDelete.innerText = "Delete";
     cardDelete.classList.add("deleteBtn");
-    deleteP.appendChild(cardDelete);
-    card.appendChild(deleteP);
+    card.appendChild(cardDelete);
 
     let cardIndex = index++;
     card.dataset.indexNumber = cardIndex;
@@ -130,10 +126,10 @@ function add() {
     btn.addEventListener('click', (e) => {
       let target = e.target;
       let parent = target.parentElement;
-      let grandparent = parent.parentElement;
-      grandparent.remove();
+      parent.remove();
     })
   }
+  console.log(myLibrary);
 }
 
 // popup form end
