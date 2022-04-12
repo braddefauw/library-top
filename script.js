@@ -99,15 +99,19 @@ function add() {
     cardPages.innerText = `${pages} pages`;
     card.appendChild(cardPages);
 
+    let cardP = document.createElement("p")
     let cardRead = document.createElement("button");
     cardRead.innerText = read;
-    cardRead.classList.add("readBtn")
-    card.appendChild(cardRead);
+    cardRead.classList.add("readBtn");
+    cardP.appendChild(cardRead);
+    card.appendChild(cardP);
 
+    let deleteP = document.createElement("p");
     let cardDelete = document.createElement("button");
     cardDelete.innerText = "Delete";
     cardDelete.classList.add("deleteBtn");
-    card.appendChild(cardDelete);
+    deleteP.appendChild(cardDelete);
+    card.appendChild(deleteP);
 
     let cardIndex = index++;
     card.dataset.indexNumber = cardIndex;
@@ -126,7 +130,26 @@ function add() {
     btn.addEventListener('click', (e) => {
       let target = e.target;
       let parent = target.parentElement;
-      parent.remove();
+      let grandparent = parent.parentElement;
+      grandparent.remove();
+    })
+  }
+  let readBtns = document.getElementsByClassName("readBtn");
+  for(let btn of readBtns){
+    btn.addEventListener('click', (e) => {
+      let target = e.target;
+      let parent = target.parentElement;
+      let elem = myLibrary[parent.dataset.indexNumber];
+      let children = parent.getElementsByClassName("readBtn")[0];
+      if(children.innerHTML === "Read"){
+        children.innerHTML = "Unread";
+        children.style.color = "#ff7f50";
+        elem.read = "Unread"
+      }else{
+        children.innerHTML = "Read";
+        children.style.color = "white";
+        elem.read = "Read";
+      }
     })
   }
   console.log(myLibrary);
@@ -157,12 +180,10 @@ for(let btn of readBtns){
       children.innerHTML = "Unread";
       children.style.color = "#ff7f50";
       elem.read = "Unread"
-      console.log(myLibrary);
     }else{
       children.innerHTML = "Read";
       children.style.color = "white";
       elem.read = "Read";
-      console.log(myLibrary);
     }
   })
 }
