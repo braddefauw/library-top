@@ -12,7 +12,6 @@ const Book = function(title, author, pages, read, index){
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
 const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Read', 1);
 myLibrary.push(theHobbit, pachinko);
-console.log(myLibrary);
 
 function makeCards(){
   for(const obj of myLibrary){
@@ -101,7 +100,13 @@ function add() {
 
     let cardP = document.createElement("p")
     let cardRead = document.createElement("button");
+    console.log(read);
     cardRead.innerText = read;
+    if(read == "Unread"){
+      cardRead.style.color = "#ff7f50"
+    }else{
+      cardRead.style.color = "white";
+    }
     cardRead.classList.add("readBtn");
     cardP.appendChild(cardRead);
     card.appendChild(cardP);
@@ -152,7 +157,6 @@ function add() {
       }
     })
   }
-  console.log(myLibrary);
 }
 
 // popup form end
