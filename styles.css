@@ -64,7 +64,25 @@ input {
 }
 
 .card-title {
-    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add {
+    font-size: 1.5rem;
+    width: 12rem;
+    height: 4rem;
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+    border-radius: 12px;
+    background: none;
+    font-weight: 800;
+}
+
+#add:hover {
+    background: gold;
 }
 
 #cards {
