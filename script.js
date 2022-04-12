@@ -134,7 +134,6 @@ function add() {
       grandparent.remove();
     })
   }
-  console.log(myLibrary);
 }
 
 // popup form end
