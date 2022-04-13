@@ -55,11 +55,43 @@ function makeCards(){
 
 makeCards();
 
+// delete card
+
+let deleteBtns = document.getElementsByClassName("deleteBtn");
+  for(let btn of deleteBtns){
+    btn.addEventListener('click', (e) => {
+      let target = e.target;
+      let parent = target.parentElement;
+      let grandparent = parent.parentElement;
+      grandparent.remove();
+    })
+  }
+
+let readBtns = document.getElementsByClassName("readBtn");
+for(let btn of readBtns){
+  btn.addEventListener('click', (e) => {
+    let target = e.target;
+    let parent = target.parentElement;
+    let elem = myLibrary[parent.dataset.indexNumber];
+    let children = parent.getElementsByClassName("readBtn")[0];
+    if(children.innerHTML === "Read"){
+      children.innerHTML = "Unread";
+      children.style.color = "#ff7f50";
+      elem.read = "Unread"
+    }else{
+      children.innerHTML = "Read";
+      children.style.color = "white";
+      elem.read = "Read";
+    }
+  })
+}
+
 //popup form start
 
 function show(){
   document.getElementById("popup").style.display = "block";
 }
+
 function hide() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("author").value = "";
@@ -100,7 +132,6 @@ function add() {
 
     let cardP = document.createElement("p")
     let cardRead = document.createElement("button");
-    console.log(read);
     cardRead.innerText = read;
     if(read == "Unread"){
       cardRead.style.color = "#ff7f50"
@@ -160,34 +191,3 @@ function add() {
 }
 
 // popup form end
-
-// delete card
-
-let deleteBtns = document.getElementsByClassName("deleteBtn");
-  for(let btn of deleteBtns){
-    btn.addEventListener('click', (e) => {
-      let target = e.target;
-      let parent = target.parentElement;
-      let grandparent = parent.parentElement;
-      grandparent.remove();
-    })
-  }
-
-let readBtns = document.getElementsByClassName("readBtn");
-for(let btn of readBtns){
-  btn.addEventListener('click', (e) => {
-    let target = e.target;
-    let parent = target.parentElement;
-    let elem = myLibrary[parent.dataset.indexNumber];
-    let children = parent.getElementsByClassName("readBtn")[0];
-    if(children.innerHTML === "Read"){
-      children.innerHTML = "Unread";
-      children.style.color = "#ff7f50";
-      elem.read = "Unread"
-    }else{
-      children.innerHTML = "Read";
-      children.style.color = "white";
-      elem.read = "Read";
-    }
-  })
-}
