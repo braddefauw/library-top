@@ -90,6 +90,13 @@ for(let btn of readBtns){
 
 function show(){
   document.getElementById("popup").style.display = "block";
+
+  document.addEventListener('mouseup', function(e) {
+    let ignoreClickOnMeElement = document.getElementById('form');
+    if (!ignoreClickOnMeElement.contains(e.target)) {
+      hide();
+    }
+  });
 }
 
 function hide() {
