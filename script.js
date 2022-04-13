@@ -1,3 +1,11 @@
+// Retrieve the object from storage
+let retrievedObject = localStorage.getItem('myLibrary');
+if(retrievedObject){
+  console.log(retrievedObject);
+}else{
+  console.log("no storage");
+}
+
 let myLibrary = [];
 let index = 2;
 
@@ -195,4 +203,6 @@ function add() {
       }
     })
   }
+  // Put the object into storage
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
