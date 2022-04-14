@@ -48,7 +48,6 @@ function makeCards(){
     card.appendChild(cardP);
 
     let cardIndex = obj.index;
-    index++;
 
     let deleteP = document.createElement("p");
     let cardDelete = document.createElement("button");
@@ -68,18 +67,19 @@ makeCards();
 // delete card
 
 let deleteBtns = document.getElementsByClassName("deleteBtn");
-  for(let btn of deleteBtns){
-    btn.addEventListener('click', (e) => {
-      let target = e.target;
-      let parent = target.parentElement;
-      let grandparent = parent.parentElement;
-      // let elem = grandparent.dataset.indexNumber;
-      // console.log(myLibrary);
-      // myLibrary.splice(elem, 1);
-      // localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-      grandparent.remove();
-    })
-  }
+function deleteButton(e) {
+  let target = e.target;
+  let parent = target.parentElement;
+  let grandparent = parent.parentElement;
+  let elem = grandparent.dataset.indexNumber;
+  myLibrary.splice(elem, 1);
+  // localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+  grandparent.remove();
+}
+
+for(let btn of deleteBtns){
+  btn.addEventListener('click', deleteButton)
+}
 
 let readBtns = document.getElementsByClassName("readBtn");
 for(let btn of readBtns){
@@ -185,15 +185,7 @@ function add() {
   }
   let deleteBtns = document.getElementsByClassName("deleteBtn");
   for(let btn of deleteBtns){
-    btn.addEventListener('click', (e) => {
-      let target = e.target;
-      let parent = target.parentElement;
-      let grandparent = parent.parentElement;
-      let elem = grandparent.dataset.indexNumber;
-      myLibrary.splice(elem, 1);
-      // localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-      grandparent.remove();
-    })
+    btn.addEventListener('click', deleteButton)
   }
   let readBtns = document.getElementsByClassName("readBtn");
   for(let btn of readBtns){
@@ -213,7 +205,6 @@ function add() {
       }
     })
   }
-  console.log(myLibrary);
   // Put the object into storage
   // localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
   // console.log(localStorage['myLibrary'])
