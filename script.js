@@ -39,6 +39,13 @@ function makeCards(){
     let cardP = document.createElement("p");
     let cardRead = document.createElement("button");
     cardRead.innerText = obj.read;
+    let readText = cardRead.innerText;
+    console.log(readText);
+    if(readText == "Unread"){
+      cardRead.style.color = "#ff7f50"
+    }else{
+      cardRead.style.color = "white";
+    }
     cardRead.classList.add("readBtn");
     cardP.appendChild(cardRead);
     card.appendChild(cardP);
@@ -68,8 +75,6 @@ function deleteButton(e) {
   let parent = target.parentElement;
   let grandparent = parent.parentElement;
   let elem = grandparent.dataset.indexNumber;
-  let idx = myLibrary[elem];
-  console.log(target, parent, grandparent, elem, idx)
   myLibrary.splice(elem, 1);
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
   grandparent.remove();
