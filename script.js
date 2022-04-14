@@ -40,7 +40,6 @@ function makeCards(){
     let cardRead = document.createElement("button");
     cardRead.innerText = obj.read;
     let readText = cardRead.innerText;
-    console.log(readText);
     if(readText == "Unread"){
       cardRead.style.color = "#ff7f50"
     }else{
@@ -178,7 +177,7 @@ function add() {
     card.dataset.indexNumber = cardIndex;
 
     cards.appendChild(card);
-    const newBook = new Book(cardTitle.innerText, cardAuthor.innerText, cardPages.innerText, cardRead.innerText, cardIndex);
+    const newBook = new Book(cardTitle.innerText, cardAuthor.innerText, pages, cardRead.innerText, cardIndex);
     myLibrary.push(newBook)
 
     document.getElementById("author").value = "";
