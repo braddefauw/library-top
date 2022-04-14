@@ -1,8 +1,14 @@
-// let oldLib = JSON.parse(localStorage.getItem('myLibrary' || "[]"));
-// console.log(oldLib);
+let oldLib = JSON.parse(localStorage.getItem('myLibrary') || "[]");
+console.log(oldLib);
 
 let myLibrary = [];
-let index = 2;
+if(oldLib){
+  myLibrary = oldLib;
+}else{
+  myLibrary = [];
+}
+
+let index = 2; 
 
 const Book = function(title, author, pages, read, index){
   this.title = title
@@ -12,9 +18,9 @@ const Book = function(title, author, pages, read, index){
   this.index = index
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
-const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Read', 1);
-myLibrary.push(theHobbit, pachinko);
+// const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Read', 0);
+// const pachinko = new Book('Pachinko', 'Min Jin Liee', 496, 'Read', 1);
+// myLibrary.push(theHobbit, pachinko);
 
 function makeCards(){
   for(const obj of myLibrary){
@@ -42,6 +48,7 @@ function makeCards(){
     card.appendChild(cardP);
 
     let cardIndex = obj.index;
+    index++;
 
     let deleteP = document.createElement("p");
     let cardDelete = document.createElement("button");
@@ -66,6 +73,10 @@ let deleteBtns = document.getElementsByClassName("deleteBtn");
       let target = e.target;
       let parent = target.parentElement;
       let grandparent = parent.parentElement;
+      let elem = grandparent.dataset.indexNumber;
+      let parsedElem = JSON.parse(localStorage['myLibrary']);
+      myLibrary.splice(elem, 1);
+      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
       grandparent.remove();
     })
   }
@@ -199,5 +210,6 @@ function add() {
     })
   }
   // Put the object into storage
-  // localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+  // console.log(localStorage['myLibrary'])
 }
