@@ -18,6 +18,7 @@ const Book = function(title, author, pages, read, index){
   this.index = index
 }
 
+// adds title, author, pages etc. to card
 function addText(obj){
   let cardP = document.createElement("p");
   cardP.innerText = obj;
