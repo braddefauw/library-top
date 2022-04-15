@@ -18,6 +18,12 @@ const Book = function(title, author, pages, read, index){
   this.index = index
 }
 
+function addText(obj){
+  let cardP = document.createElement("p");
+  cardP.innerText = obj;
+  card.appendChild(cardP);
+}
+
 // this function makes card from the existing library array, if applicable
 function makeCards(){
   for(const obj of myLibrary){
@@ -25,13 +31,8 @@ function makeCards(){
     let card = document.createElement("div");
     card.classList.add("card");
 
-    let cardTitle = document.createElement("p");
-    cardTitle.innerText = obj.title;
-    card.appendChild(cardTitle);
-
-    let cardAuthor = document.createElement("p");
-    cardAuthor.innerText = obj.author;
-    card.appendChild(cardAuthor);
+    addText(obj.title);
+    addText(obj.author);
 
     let cardPages = document.createElement("p");
     cardPages.innerText = `${obj.pages} pages`;
@@ -147,13 +148,8 @@ function add() {
     let card = document.createElement("div");
     card.classList.add("card");
 
-    let cardTitle = document.createElement("p");
-    cardTitle.innerText = title;
-    card.appendChild(cardTitle);
-
-    let cardAuthor = document.createElement("p");
-    cardAuthor.innerText = author;
-    card.appendChild(cardAuthor);
+    addText(title);
+    addText(author);
 
     let cardPages = document.createElement("p");
     cardPages.innerText = `${pages} pages`;
