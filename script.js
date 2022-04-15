@@ -18,6 +18,7 @@ const Book = function(title, author, pages, read, index){
   this.index = index
 }
 
+// this function makes card from the existing library array, if applicable
 function makeCards(){
   for(const obj of myLibrary){
     let cards = document.getElementById("cards");
@@ -83,6 +84,7 @@ for(let btn of deleteBtns){
   btn.addEventListener('click', deleteButton)
 }
 
+// changes text of read/unread and color as necessary, and updates library array as required
 let readBtns = document.getElementsByClassName("readBtn");
 for(let btn of readBtns){
   btn.addEventListener('click', (e) => {
@@ -105,6 +107,7 @@ for(let btn of readBtns){
 
 //popup form start
 
+// shows popup form on screen
 function show(){
   document.getElementById("popup").style.display = "block";
 
@@ -116,6 +119,7 @@ function show(){
   });
 }
 
+// hides popup form from screen
 function hide() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("author").value = "";
@@ -124,6 +128,7 @@ function hide() {
   document.getElementById("read").value = "";
 }
 
+// adds new book to library array from information gathered from form
 function add() {
   let author = document.getElementById("author").value;
   let title = document.getElementById("title").value;
