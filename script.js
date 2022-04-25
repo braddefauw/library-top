@@ -10,12 +10,14 @@ if(oldLib){
 
 let index = 2; 
 
-const Book = function(title, author, pages, read, index){
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read;
-  this.index = index
+class Book{
+  constructor (title, author, pages, read, index){
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read;
+    this.index = index
+  }
 }
 
 // this function makes card from the existing library array, if applicable
