@@ -23,7 +23,7 @@
                     <button type="button" id="close" onclick="hide()">X</button>
                     <br>
                     <h3>Add a New Book</h1>
-                    <div class="form-container">
+                    <form id="form">
                         <label for="title"></label><br>
                         <input type="text" id="title" name="title" placeholder="Title" required />
                         <label for="author"></label><br>
@@ -34,8 +34,9 @@
                             <label for="read">Have you read it?</label>
                             <input type="checkbox" id="read" name="read"><br>
                         </div>
-                    </div>
-                    <input type="submit" id="submit" value="Submit" onclick="add()">
+                        <input type="submit" id="submit" value="Submit" onclick="add()">
+                    </form>
+                    
                 </form>
             </div>
         </div>

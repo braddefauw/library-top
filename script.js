@@ -8,7 +8,7 @@ if(oldLib){
   myLibrary = [];
 }
 
-let index = 2; 
+let index = 0; 
 
 class Book{
   constructor (title, author, pages, read, index){
@@ -148,8 +148,12 @@ function add() {
     let card = document.createElement("div");
     card.classList.add("card");
 
-    addText(title);
-    addText(author);
+    let cardTitle = document.createElement("p");
+    cardTitle.innerText = title;
+    card.appendChild(cardTitle);
+    let cardAuthor = document.createElement("p");
+    cardAuthor.innerText = author;
+    card.appendChild(cardAuthor);
 
     let cardPages = document.createElement("p");
     cardPages.innerText = `${pages} pages`;
@@ -208,8 +212,11 @@ function add() {
       }
     })
   }
-
   // Put the object into storage
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
   // console.log(localStorage['myLibrary'])
 }
+
+var form = document.querySelector("#form");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm);
