@@ -185,7 +185,7 @@ function add() {
 
     let cardIndex = index;
     card.dataset.indexNumber = cardIndex;
-    console.log(card.dataset.indexNumber);
+    // console.log(card.dataset.indexNumber);
     index++;
 
     cards.appendChild(card);
@@ -228,6 +228,6 @@ function add() {
   // console.log(localStorage['myLibrary'])
 }
 
-var form = document.querySelector("#form");
-function handleForm(event) { event.preventDefault(); } 
-form.addEventListener('submit', handleForm);
+// var form = document.querySelector("#form");
+// function handleForm(event) { event.preventDefault(); } 
+// form.addEventListener('submit', handleForm);
