@@ -201,14 +201,15 @@ function add() {
       let parent = target.parentElement;
       let elem = myLibrary[parent.dataset.indexNumber];
       let children = parent.getElementsByClassName("readBtn")[0];
+      console.log(myLibrary);
       if(children.innerHTML === "Read"){
         children.innerHTML = "Unread";
         children.style.color = "#ff7f50";
-        elem.read = "Unread"
+        // elem.read = "Unread"
       }else{
         children.innerHTML = "Read";
         children.style.color = "white";
-        elem.read = "Read";
+        // elem.read = "Read";
       }
     })
   }
