@@ -8,7 +8,7 @@ if(oldLib){
   myLibrary = [];
 }
 
-let index = 0; 
+let index; 
 
 class Book{
   constructor (title, author, pages, read, index){
@@ -23,15 +23,16 @@ class Book{
 // this function makes card from the existing library array, if applicable
 function makeCards(){
   for(const obj of myLibrary){
+    // console.log(obj)
     let cards = document.getElementById("cards");
     let card = document.createElement("div");
     card.classList.add("card");
 
     let cardTitle = document.createElement("p");
-    cardTitle.innerText = obj.title;
+    cardTitle.innerText = obj.newTitle;
     card.appendChild(cardTitle);
     let cardAuthor = document.createElement("p");
-    cardAuthor.innerText = obj.author;
+    cardAuthor.innerText = obj.newAuthor;
     card.appendChild(cardAuthor);
 
     let cardPages = document.createElement("p");
@@ -40,7 +41,7 @@ function makeCards(){
 
     let cardP = document.createElement("p");
     let cardRead = document.createElement("button");
-    cardRead.innerText = obj.read;
+    cardRead.innerText = obj.newRead;
     let readText = cardRead.innerText;
     if(readText == "Unread"){
       cardRead.style.color = "#ff7f50"
@@ -60,7 +61,7 @@ function makeCards(){
     deleteP.appendChild(cardDelete);
     card.appendChild(deleteP);
 
-    card.dataset.indexNumber = cardIndex;
+    card.dataset.indexNumber = obj.cardIndex;
 
     cards.appendChild(card);
   }
@@ -76,7 +77,9 @@ function deleteButton(e) {
   let parent = target.parentElement;
   let grandparent = parent.parentElement;
   let elem = grandparent.dataset.indexNumber;
+  // console.log(target, parent, grandparent, elem, myLibrary);
   myLibrary.splice(elem, 1);
+  // console.log(myLibrary);
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
   grandparent.remove();
 }
@@ -131,6 +134,8 @@ function hide() {
 
 // adds new book to library array from information gathered from form
 function add() {
+  index = myLibrary.length;
+  // console.log(index);
   let author = document.getElementById("author").value;
   let title = document.getElementById("title").value;
   let pages = document.getElementById("pages").value;
@@ -178,11 +183,16 @@ function add() {
     deleteP.appendChild(cardDelete);
     card.appendChild(deleteP);
 
-    let cardIndex = index++;
+    let cardIndex = index;
     card.dataset.indexNumber = cardIndex;
+    console.log(card.dataset.indexNumber);
+    index++;
 
     cards.appendChild(card);
-    const newBook = new Book(cardTitle.innerText, cardAuthor.innerText, pages, cardRead.innerText, cardIndex);
+    let newTitle = cardTitle.innerText;
+    let newAuthor = cardAuthor.innerText;
+    let newRead = cardRead.innerText;
+    const newBook = ({newTitle, newAuthor, pages, newRead, cardIndex});
     myLibrary.push(newBook)
 
     document.getElementById("author").value = "";
