@@ -65,7 +65,7 @@ button {
     text-align: center;
 }
 
-#form {
+.form-container {
     display: flex;
     flex-direction: column;
 }
